@@ -1,0 +1,2 @@
+# SwapVer
+Crypts binary
