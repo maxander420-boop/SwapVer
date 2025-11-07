@@ -8,7 +8,7 @@ def swapbin(char):
     
 
 
-def crypt(key,string):
+def swapcrypt(key,string):
     temptf = "0"
     cryptedtext = ""
     for i in range(len(string)):
@@ -21,7 +21,10 @@ def crypt(key,string):
         else:
             cryptedtext += string[i]
     return cryptedtext
-
-
+def swapdecrypt(key,string):
+    return swapcrypt(key=key,string=string)
+def genkey(string):
+    return swapcrypt(key=swapcrypt(key=string,string=string),string=string)
 if __name__ == "__main__":
-    print(crypt(key="110",string="101"))
+    print(swapcrypt(key="110",string="101"))
+    print(genkey("010101001010"))
