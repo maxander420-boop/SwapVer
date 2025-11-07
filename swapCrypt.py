@@ -25,6 +25,21 @@ def swapdecrypt(key,string):
     return swapcrypt(key=key,string=string)
 def genkey(string):
     return swapcrypt(key=swapcrypt(key=string,string=string),string=string)
+def chartobinstring(char):
+    bi = bin(ord(char))
+    return bi[2:len(bi)]
+def stringtobin(string):
+    bintext = ""
+    for i in string:
+        bintext += chartobinstring(i)
+    return bintext
+def cryptstring(key,string):
+    
+    return swapcrypt(stringtobin(key),stringtobin(string))
+def decracptstring(key,string):
+
+    return swapcrypt(stringtobin(key),stringtobin(string))
 if __name__ == "__main__":
     print(swapcrypt(key="110",string="101"))
-    print(genkey("010101001010"))
+    print(genkey("010010101010001"))
+    print(cryptstring("fe","rh"))
