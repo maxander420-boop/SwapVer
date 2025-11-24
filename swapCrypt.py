@@ -34,12 +34,21 @@ def stringtobin(string):
         bintext += chartobinstring(i)
     return bintext
 def cryptstring(key,string):
-    
-    return swapcrypt(stringtobin(key),stringtobin(string))
+    print(f"string1: {string},Key1:{key}")
+    string = swapcrypt(stringtobin(key),stringtobin(string))
+    if len(string) < 8:
+        string = "0"+string
+        
+    print(f"string1: {string},Key1:{key}")
+    text = ''.join(chr(int(b, 2)) for b in string.split())
+    print(f"string1: {string},Key1:{key}")
+    print(f"text:{text}")
+    return text
 def decracptstring(key,string):
-
+    print(f"Key:{key} String:{string}")
     return swapcrypt(stringtobin(key),stringtobin(string))
 if __name__ == "__main__":
     print(swapcrypt(key="110",string="101"))
     print(genkey("010010101010001"))
-    print(cryptstring("fe","rh"))
+    print(cryptstring("f","h"))
+    print(decracptstring("e","e"))
